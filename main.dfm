@@ -1,6 +1,6 @@
 object Form1: TForm1
-  Left = 594
-  Top = 243
+  Left = 864
+  Top = 297
   Width = 1019
   Height = 465
   Caption = 'Atomic Computing Visualizer'
@@ -12,6 +12,7 @@ object Form1: TForm1
   Font.Style = []
   OldCreateOrder = False
   Position = poDesktopCenter
+  OnCreate = FormCreate
   PixelsPerInch = 96
   TextHeight = 13
   object LabelDebug: TLabel
@@ -20,6 +21,14 @@ object Form1: TForm1
     Width = 32
     Height = 13
     Caption = 'Debug'
+  end
+  object Label3: TLabel
+    Left = 776
+    Top = 400
+    Width = 18
+    Height = 13
+    Alignment = taRightJustify
+    Caption = '100'
   end
   object AtomGroup: TRadioGroup
     Left = 8
@@ -60,7 +69,7 @@ object Form1: TForm1
       Height = 13
       Caption = 'l: '
     end
-    object Edit1: TEdit
+    object EditQuantumN: TEdit
       Left = 24
       Top = 24
       Width = 137
@@ -70,7 +79,7 @@ object Form1: TForm1
       TabOrder = 0
       Text = '1'
     end
-    object Edit2: TEdit
+    object EditQuantumL: TEdit
       Left = 24
       Top = 48
       Width = 137
@@ -86,12 +95,14 @@ object Form1: TForm1
     Height = 81
     Caption = 'Plot Selection'
     TabOrder = 2
-    object cbWafefunction: TCheckBox
+    object cbWavefunction: TCheckBox
       Left = 8
       Top = 24
       Width = 153
       Height = 17
       Caption = 'Wave Function'
+      Checked = True
+      State = cbChecked
       TabOrder = 0
     end
     object cbProbability: TCheckBox
@@ -116,7 +127,7 @@ object Form1: TForm1
     Left = 192
     Top = 8
     Width = 609
-    Height = 409
+    Height = 377
     BackWall.Brush.Color = clWhite
     BackWall.Brush.Style = bsClear
     Title.Text.Strings = (
@@ -130,7 +141,7 @@ object Form1: TForm1
       SeriesColor = clRed
       Title = 'Wave Function'
       Pointer.InflateMargins = True
-      Pointer.Style = psRectangle
+      Pointer.Style = psCircle
       Pointer.Visible = False
       XValues.DateTime = False
       XValues.Name = 'X'
@@ -164,6 +175,29 @@ object Form1: TForm1
     Top = 32
     Width = 185
     Height = 385
+    ScrollBars = ssVertical
     TabOrder = 5
+  end
+  object CheckBox1: TCheckBox
+    Left = 192
+    Top = 400
+    Width = 65
+    Height = 17
+    Caption = 'Axis Auto'
+    Checked = True
+    State = cbChecked
+    TabOrder = 6
+    OnClick = CheckBox1Click
+  end
+  object ScrollBar1: TScrollBar
+    Left = 264
+    Top = 400
+    Width = 505
+    Height = 17
+    Enabled = False
+    PageSize = 0
+    Position = 100
+    TabOrder = 7
+    OnChange = ScrollBar1Change
   end
 end
